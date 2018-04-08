@@ -61,7 +61,9 @@ class ChannelAdapter(var mContext: Context, var mList: ArrayList<ChannelBean>, v
         holder.name.setOnClickListener {
             if (holder.layoutPosition < selectedSize + 1) {
                 //tab上面的 点击移除
-                removeFromSelected(holder)
+                if (holder.layoutPosition > fixSize) {
+                    removeFromSelected(holder)
+                }
             } else {
                 //tab下面的 点击添加到已选频道
                 selectedSize++
